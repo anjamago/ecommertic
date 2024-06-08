@@ -4,6 +4,7 @@ package com.linktic.ecommer.ecommerback.infrastructure.Api;
 import com.linktic.ecommer.ecommerback.application.UserService;
 import com.linktic.ecommer.ecommerback.domain.model.User;
 import com.linktic.ecommer.ecommerback.domain.model.UserDto;
+import com.linktic.ecommer.ecommerback.domain.model.UserResponseDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -24,8 +25,8 @@ public class UserController {
         return _userService.Save(user);
     }
 
-    @GetMapping()
-    public User Get(@RequestParam UUID userId){
+    @GetMapping("{userId}")
+    public UserResponseDto Get(@PathVariable UUID userId){
         return _userService.findById(userId);
     }
 

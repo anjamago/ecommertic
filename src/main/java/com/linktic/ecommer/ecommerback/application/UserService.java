@@ -2,6 +2,7 @@ package com.linktic.ecommer.ecommerback.application;
 
 import com.linktic.ecommer.ecommerback.domain.model.User;
 import com.linktic.ecommer.ecommerback.domain.model.UserDto;
+import com.linktic.ecommer.ecommerback.domain.model.UserResponseDto;
 import com.linktic.ecommer.ecommerback.domain.port.IUserRepository;
 import com.linktic.ecommer.ecommerback.infrastructure.Entitys.UserEntity;
 
@@ -32,9 +33,18 @@ public class UserService {
         return user;
     }
 
-    public User findById(UUID userId){
-        //return  _userRepository.FindById(userId);
+    public UserResponseDto findById(UUID userId){
+        var data =   _userRepository.FindById(userId);
 
-        return new User();
+        return new UserResponseDto(
+                data.getIdUser(),
+                data.getUserName(),
+                data.getFirstName(),
+                data.getLastName(),
+                data.getEmail(),
+                data.getAddress(),
+                data.getCellphoneNumber(),
+                data.getUserType()
+        );
     }
 }
