@@ -1,3 +1,4 @@
+
 package com.linktic.ecommer.ecommerback.domain.port;
 
 import com.linktic.ecommer.ecommerback.domain.model.Category;
@@ -9,4 +10,5 @@ public interface ICategoryRepository {
     Iterable<Category> FindAll();
     Category FindById(UUID id);
     void  Delete(UUID id);
+
 }

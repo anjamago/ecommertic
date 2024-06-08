@@ -1,3 +1,4 @@
+
 package com.linktic.ecommer.ecommerback.infrastructure.Entitys;
 
 import com.linktic.ecommer.ecommerback.domain.model.UserType;
@@ -147,4 +148,5 @@ public class UserEntity {
     public void setUpdateDate(LocalDateTime updateDate) {
         UpdateDate = updateDate;
     }
+
 }

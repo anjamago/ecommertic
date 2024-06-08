@@ -1,3 +1,4 @@
+
 package com.linktic.ecommer.ecommerback.domain.port;
 
 import com.linktic.ecommer.ecommerback.domain.model.Product;
@@ -9,4 +10,5 @@ public interface IProductRepository {
     Iterable<Product> FindAll();
     Product FindById(UUID id);
     void  Delete(UUID id);
+
 }
