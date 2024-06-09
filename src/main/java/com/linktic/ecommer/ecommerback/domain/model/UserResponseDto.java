@@ -1,12 +1,16 @@
 package com.linktic.ecommer.ecommerback.domain.model;
 
-public record  UserDto(
+import java.util.UUID;
+
+public record UserResponseDto(
+        UUID userId,
         String UserName,
         String FirstName,
         String LastName,
         String Email,
-        String Password,
         String Address,
         Long CellphoneNumber,
         UserType UserType
-){}
+) {
+
+}
