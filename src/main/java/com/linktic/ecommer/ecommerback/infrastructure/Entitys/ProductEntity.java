@@ -1,14 +1,19 @@
-package com.linktic.ecommer.ecommerback.domain.model;
+package com.linktic.ecommer.ecommerback.infrastructure.Entitys;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-
-public class Product {
-
-    private UUID IdProduct;
+@Entity
+@Table(name="Products", schema = "catalogo")
+public class ProductEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID ProductId;
     private String Name;
     private String Description;
     private BigDecimal Price;
@@ -17,15 +22,48 @@ public class Product {
     private String ImageUrl;
     private UUID UserId;
     private UUID CategoryId;
+    @CreationTimestamp
     private LocalDateTime CreateDate;
+    @UpdateTimestamp
     private LocalDateTime UpdateDate;
 
-    public UUID getIdProduct() {
-        return IdProduct;
+    public ProductEntity() {
     }
 
-    public void setIdProduct(UUID idProduct) {
-        IdProduct = idProduct;
+    public ProductEntity(UUID userId, LocalDateTime updateDate, Integer quantity, UUID productId, BigDecimal price, String name, String imageUrl, LocalDateTime createDate, String description, String code, UUID categoryId) {
+        UserId = userId;
+        UpdateDate = updateDate;
+        Quantity = quantity;
+        ProductId = productId;
+        Price = price;
+        Name = name;
+        ImageUrl = imageUrl;
+        CreateDate = createDate;
+        Description = description;
+        Code = code;
+        CategoryId = categoryId;
+    }
+
+
+
+    public ProductEntity(  Integer quantity,  BigDecimal price, String name, String imageUrl,  String description, String code, UUID categoryId,UUID userId) {
+        Quantity = quantity;
+        Price = price;
+        Name = name;
+        ImageUrl = imageUrl;
+        Description = description;
+        Code = code;
+        CategoryId = categoryId;
+        UserId = userId;
+    }
+
+
+    public UUID getProductId() {
+        return ProductId;
+    }
+
+    public void setProductId(UUID productId) {
+        ProductId = productId;
     }
 
     public String getName() {
@@ -92,19 +130,19 @@ public class Product {
         CategoryId = categoryId;
     }
 
-    public LocalDateTime getCreateDate() {
-        return CreateDate;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        CreateDate = createDate;
-    }
-
     public LocalDateTime getUpdateDate() {
         return UpdateDate;
     }
 
     public void setUpdateDate(LocalDateTime updateDate) {
         UpdateDate = updateDate;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return CreateDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        CreateDate = createDate;
     }
 }

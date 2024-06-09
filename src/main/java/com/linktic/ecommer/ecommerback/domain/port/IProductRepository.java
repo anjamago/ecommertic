@@ -1,14 +1,14 @@
 
 package com.linktic.ecommer.ecommerback.domain.port;
 
-import com.linktic.ecommer.ecommerback.domain.model.Product;
+import com.linktic.ecommer.ecommerback.infrastructure.Entitys.ProductEntity;
 
 import java.util.UUID;
 
 public interface IProductRepository {
-    Product Save(Product product);
-    Iterable<Product> FindAll();
-    Product FindById(UUID id);
+    ProductEntity Save(ProductEntity product);
+    Iterable<ProductEntity> FindAll();
+    ProductEntity FindById(UUID id);
     void  Delete(UUID id);
 
 }
