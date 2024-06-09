@@ -18,8 +18,8 @@ jobs:
       - uses: azure/docker-login@v1
         with:
           login-serve: acreastest.azurecr.io
-          username: ${{secret.ACR_USERNAME}}
-          password: ${{secret.ACR_PASSWORDUSER}}
+          username: ${{secrets.ACR_USERNAME}}
+          password: ${{secrets.ACR_PASSWORDUSER}}
       - run: |
           docker build . -t acreastest.azurecr.io/ecommercetic-back:${{github.sha}}
           docker push acreastest.azurecr.io/ecommercetic-back:${{github.sha}}
