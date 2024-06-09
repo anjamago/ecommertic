@@ -1,0 +1,25 @@
+
+name: LinkTicEcommerBackCI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/docker-login@v1
+        with:
+          login-serve: acreastest.azurecr.io
+          username: ${{serve.USERNAME}}
+          password: ${{serve.PASSWORDUSER}}
+      - run: |
+        docker build . -t acreastest.azurecr.io/ecommercetic-back:${{github.sha}}
+        docker push acreastest.azurecr.io/ecommercetic-back:${{github.sha}}
