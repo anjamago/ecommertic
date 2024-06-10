@@ -18,6 +18,9 @@
 		<version.mapstruct>1.5.5.Final</version.mapstruct>
 		<version.lombok>1.18.32</version.lombok>
 		<version.mapstruct-lombock>0.2.0</version.mapstruct-lombock>
+		<docker.image.prefix>acreastest.azurecr.io</docker.image.prefix>
+		<jib-maven-plugin.version>3.4.3</jib-maven-plugin.version>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -89,6 +92,16 @@
 							<version>${version.mapstruct-lombock}</version>
 						</path>
 					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.3</version>
+				<configuration>
+					<to>
+						<image>acreastest.azurecr.io/ecommercetic-back</image>
+					</to>
 				</configuration>
 			</plugin>
 		</plugins>
