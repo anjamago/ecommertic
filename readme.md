@@ -1,6 +1,6 @@
 # Proyecto Spring, ecommer
 
-![Arquitectura](path/to/your/architecture/image.png)
+![Arquitectura](Builders/eco-Page.drawio.png)
 
 ## Descripción
 
