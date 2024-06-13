@@ -19,7 +19,7 @@ spec:
         - name: ecommercetic-back
           image: acreastest.azurecr.io/ecommercetic-back:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 3157
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "dev"
@@ -40,13 +40,13 @@ metadata:
   labels:
     app: ecommercetic-back
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: ecommercetic-back
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 3157
 
 ---
 apiVersion: networking.k8s.io/v1
